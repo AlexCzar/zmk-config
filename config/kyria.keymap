@@ -25,6 +25,13 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
+		colsem: colsem_swap {
+			compatible = "zmk,behavior-mod-morph";
+			label = "COL_SEMI_SWAP";
+			#binding-cells = <0>;
+			bindings = <&kp COLON>, <&kp SEMI>;
+			mods = <(MOD_LSFT|MOD_RSFT)>;
+		};
 	};
 
 	keymap {
@@ -44,7 +51,7 @@
 // | SHIFT |   Z   | X    |  C    |  D    |  V    |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
 //                        | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  moNAV | Pause |
 			bindings = <
-	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
+	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &colsem     &kp LBKT
 	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                  &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
 	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV  &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
 	                           &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &mo NAV  &kp PAUSE_BREAK
@@ -71,14 +78,14 @@
 
 		nav_layer {
 // -----------------------------------------------------------------------------------------------------------------------------------------------------------;
-// |  ESC  | BT_CLR | BT_SEL 3 | BT_SEL 2 | BT_SEL 1 | BT_SEL 0 |                                             | PG_UP | HOME  |  UP   |  END  | &none | &none |
-// |  TAB  |   F2   |    F3    |    F4    |    F5    |    F6    |                                             | PG_DN | LEFT  | DOWN  | RIGHT | LGUI  | &none |
-// | SHIFT |   F7   |    F8    |    F9    |    F10   |    F11   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | INS   | &none | &none | &none |
+// |  ESC  | BT_CLR | BT_SEL 3 | BT_SEL 2 | BT_SEL 1 | BT_SEL 0 |                                             | PG_UP | HOME  | SCLC  |  END  | VOL+  | VOL-  |
+// |  TAB  |   F2   |    F3    |    F4    |    F5    |    F6    |                                             | PG_DN | LEFT  |  UP   | RIGHT | LGUI  |   ;   |
+// | SHIFT |   F7   |    F8    |    F9    |    F10   |    F11   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | bootl |
 //                             |  Pause   |   toNum  |   slNum  |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC  | moNAV | Pause |
 			bindings = <
-	&bt BT_CLR  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0                               &kp PG_UP  &kp HOME        &kp SLCK      &kp END         &none     &reset
-	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5  &kp F6                                     &kp PG_DN  &hm RCTRL LEFT  &hm RSHFT UP  &hm LALT RIGHT  &kp LGUI  &none
-	&trans      &kp F7        &kp F8        &kp F9        &kp F10       &kp F11  &trans &trans   &trans  &to DFLT  &kp K      &kp PSCRN       &kp DOWN      &kp INS         &none     &bootloader
+	&bt BT_CLR  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0                               &kp PG_UP  &kp HOME   &kp SLCK  &kp END    &kp C_VOL_DN     &kp C_VOL_UP
+	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5  &kp F6                                     &kp PG_DN  &kp LEFT   &kp UP    &kp RIGHT  &kp LGUI         &kp SEMI
+	&trans      &kp F7        &kp F8        &kp F9        &kp F10       &kp F11  &trans &trans   &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &bootloader
 	                                                     &trans  &trans  &trans  &trans &trans   &trans    &trans  &trans  &trans  &trans
 			>;
 
