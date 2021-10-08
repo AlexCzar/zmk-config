@@ -25,13 +25,6 @@
 			flavor = "tap-preferred";
 			bindings = <&kp>, <&kp>;
 		};
-		colsem: colsem_swap {
-			compatible = "zmk,behavior-mod-morph";
-			label = "COL_SEMI_SWAP";
-			#binding-cells = <0>;
-			bindings = <&kp COLON>, <&kp SEMI>;
-			mods = <(MOD_LSFT|MOD_RSFT)>;
-		};
 	};
 
 	keymap {
@@ -51,7 +44,7 @@
 // | SHIFT |   Z   | X    |  C    |  D    |  V    |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
 //                        | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  moNAV | Pause |
 			bindings = <
-	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &colsem     &kp LBKT
+	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
 	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                  &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
 	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV  &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
 	                           &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &mo NAV  &kp PAUSE_BREAK
