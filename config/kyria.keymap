@@ -1,27 +1,85 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
+ * Copyright (c) 2021 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DFLT    0
+#define NUMSYM  1
+#define NAV     2
+
 
 / {
+
+	behaviors {
+		hm: homerow_mods {
+			compatible = "zmk,behavior-hold-tap";
+			label = "HOMEROW_MODS";
+			#binding-cells = <2>;
+			tapping-term-ms = <150>;
+			quick_tap_ms = <0>;
+			flavor = "tap-preferred";
+			bindings = <&kp>, <&kp>;
+		};
+	};
+
 	keymap {
 		compatible = "zmk,keymap";
 
 		default_layer {
-// -------------------------------------------------------------------------------------------------------------------------------------
-// |  ESC  |  Q  |  W  |  F   |  P   |  B   |                                           |  J   |  L      |  U    |  Y   |   :   |   [  |
-// |  TAB  |  A  |  R  |  S   |  T   |  G   |                                           |  M   |  N      |  E    |  I   |   O   |   '  |
-// | SHIFT |  Z  |  X  |  C   |  D   |  V   | L SHIFT | L SHIFT || || L SHIFT |  RALT   |  K   |  H      |  ,    |  .   |   /   | CTRL |
-//                     | GUI  | DEL  | LALT |  LSHFT  |   ESC   || ||   RET   |  SPACE  | BSPC | K_CMENU | Pause |
+// NOTES:
+// CAPS to change language layout
+// F1 to bring up command runner (KRunner)
+// F12 to bring up terminal emulator (Kitty)
+// Home row mods: GASC
+// Pause to mute/unmute microphone
+// RALT as Compose key
+// ---------------------------------------------------------------------------------------------------------------------------------------;
+// |  ESC  |  Q  |  W  |  F    |  P    |  B    |                                            |  J   |  L     |  U    |  Y   |   :   |   [  |
+// |  TAB  |  A  |  R  |  S    |  T    |  G    |                                            |  M   |  N     |  E    |  I   |   O   |   '  |
+// | SHIFT |  Z  |  X  |  C    |  D    |  V    |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .   |   /   | RALT |
+//                     | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  moNAV | Pause |
 			bindings = <
-	&kp ESC    &kp Q  &kp W  &kp F  &kp P  &kp B                                           &kp J   &kp L  &kp U      &kp Y    &kp COLON  &kp LBKT
-	&kp TAB    &kp A  &kp R  &kp S  &kp T  &kp G                                           &kp M   &kp N  &kp E      &kp I    &kp O      &kp SQT
-	&kp LSHFT  &kp Z  &kp X  &kp C  &kp D  &kp V   &kp LSHFT &kp F1    &kp F12  &kp RALT   &kp K   &kp H  &kp COMMA  &kp DOT  &kp FSLH   &kp RCTRL
-	                &kp LGUI   &kp DEL   &kp LALT  &kp LSHFT &kp ESC   &kp RET  &kp SPACE  &kp BSPC  &kp K_CMENU  &kp PAUSE_BREAK
+	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
+	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                  &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
+	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV  &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
+	                           &kp PAUSE_BREAK  &to NUMSYM  &sl NUMSYM  &kp CAPS  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &mo NAV  &kp PAUSE_BREAK
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		numsym_layer {
+// --------------------------------------------------------------------------------------------------------------------------------------------;
+// |  ESC  |  !  |  @  |  #    |  $    |  &    |                                             |   +  |  7     |  8    |  9    |   -      |   >  |
+// |  TAB  |  {  |  }  |  (    |  )    |  _    |                                             |   *  |  4     |  5    |  6    |   =      |   |  |
+// | SHIFT |  ^  |  ~  |  [    |  ]    |  %    |    `   |    F1   ||     ||  F12  | &to DFLT |   0  |  1     |  2    |  3    |   /      |   \  |
+//                     | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC |  moNAV | Pause |
+			bindings = <
+	&trans  &kp EXCL       &kp AT         &kp HASH        &kp DLLR        &kp AMPS                                      &kp PLUS   &kp N7        &kp N8        &kp N9       &kp MINUS       &kp BSLH
+	&trans  &hm LGUI LBRC  &hm LALT RBRC  &hm LSHFT LPAR  &hm LCTRL RPAR  &kp UNDER                                     &kp STAR   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
+	&trans  &kp CRRT       &kp TILD       &kp LBKT        &kp RBKT        &kp PRCT   &trans &trans     &trans &to DFLT  &kp N0     &kp N1        &kp N2        &kp N3       &kp FSLH        &trans
+	                                                         &trans  &trans  &trans  &trans &trans     &trans   &trans  &trans  &trans  &trans
+			>;
+
+			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		nav_layer {
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------;
+// |  ESC  | BT_CLR | BT_SEL 3 | BT_SEL 2 | BT_SEL 1 | BT_SEL 0 |                                             | PG_UP | HOME  |  UP   |  END  | &none | &none |
+// |  TAB  |   F2   |    F3    |    F4    |    F5    |    F6    |                                             | PG_DN | LEFT  | DOWN  | RIGHT | LGUI  | &none |
+// | SHIFT |   F7   |    F8    |    F9    |    F10   |    F11   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | INS   | &none | &none | &none |
+//                             |  Pause   |   toNum  |   slNum  |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC  | moNAV | Pause |
+			bindings = <
+	&bt BT_CLR  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0                               &kp PG_UP  &kp HOME        &kp UP          &kp END         &none     &reset
+	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5  &kp F6                                     &kp PG_DN  &hm RCTRL LEFT  &hm RSHFT DOWN  &hm LALT RIGHT  &kp LGUI  &none
+	&trans      &kp F7        &kp F8        &kp F9        &kp F10       &kp F11  &trans &trans   &trans  &to DFLT  &kp K      &kp PSCRN       &kp SLCK        &kp INS         &none     &bootloader
+	                                                     &trans  &trans  &trans  &trans &trans   &trans    &trans  &trans  &trans  &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
