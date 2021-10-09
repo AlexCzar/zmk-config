@@ -46,12 +46,12 @@
 // |  ESC  |   Q   | W    |  F    |  P    |  B    |                                            |  J   |  L     |  U    |  Y    |  :    |   [  |
 // |  TAB  |  A(G) | R(A) |  S(S) |  T(C) |  G    |                                            |  M   |  N(C)  |  E(S) |  I(A) |  O(G) |   '  |
 // | SHIFT |   Z   | X    |  C    |  D    |  V    |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
-//                        | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  moNAV | Pause |
+//                        | Pause | toNum | CAPS  | slNum  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
 			bindings = <
-	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                  &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
-	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                  &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
-	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV  &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
-	                           &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &mo NAV  &kp PAUSE_BREAK
+	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                    &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
+	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                    &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
+	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV    &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
+	                               &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
