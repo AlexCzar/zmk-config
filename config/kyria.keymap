@@ -54,7 +54,7 @@
 	                               &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		numsym_layer {
@@ -70,7 +70,7 @@
 	                                                         &trans  &trans  &trans  &trans &trans     &trans   &trans  &kp DEL  &trans  &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
 
 		nav_layer {
@@ -86,7 +86,7 @@
 	                                                     &trans   &trans   &trans   &trans &trans   &trans    &trans  &trans  &trans  &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
 	};
 
