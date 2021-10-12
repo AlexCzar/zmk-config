@@ -60,13 +60,13 @@
 		numsym_layer {
 // --------------------------------------------------------------------------------------------------------------------------------------------;
 // |  ESC  |  !  |  @  |  #    |  $    |  &    |                                             |   +  |  7     |  8    |  9    |   -      |   >  |
-// |  TAB  |  {  |  }  |  (    |  )    |  _    |                                             |   *  |  4     |  5    |  6    |   =      |   |  |
-// | SHIFT |  ^  |  ~  |  [    |  ]    |  %    |    `   |    F1   ||     ||  F12  | &to DFLT |   0  |  1     |  2    |  3    |   /      |   \  |
+// |  TAB  |  %  |  _  |  (    |  {    |  [    |                                             |   *  |  4     |  5    |  6    |   =      |   |  |
+// | SHIFT |  ^  |  ~  |  )    |  }    |  ]    |    `   |    F1   ||     ||  F12  | &to DFLT |   0  |  1     |  2    |  3    |   /      |   \  |
 //                     | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC |  moNAV | Pause |
 			bindings = <
-	&trans  &kp EXCL       &kp AT         &kp HASH        &kp DLLR        &kp AMPS                                      &kp PLUS   &kp N7        &kp N8        &kp N9       &kp MINUS       &kp GT
-	&trans  &hm LGUI LBRC  &hm LALT RBRC  &hm LSHFT LPAR  &hm LCTRL RPAR  &kp UNDER                                     &kp STAR   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
-	&trans  &kp CRRT       &kp TILD       &kp LBKT        &kp RBKT        &kp PRCT   &trans &trans     &trans &to DFLT  &kp N0     &kp N1        &kp N2        &kp N3       &kp FSLH        &kp BSLH
+	&trans  &kp EXCL       &kp AT          &kp HASH        &kp DLLR        &kp AMPS                                     &kp PLUS   &kp N7        &kp N8        &kp N9       &kp MINUS       &kp GT
+	&trans  &hm LGUI PRCT  &hm LALT UNDER  &hm LSHFT LPAR  &hm LCTRL LBRC  &kp LBKT                                     &kp STAR   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
+	&trans  &kp CRRT       &kp TILD        &kp RPAR        &kp RBRC        &kp RBKT  &trans &trans     &trans &to DFLT  &kp N0     &kp N1        &kp N2        &kp N3       &kp FSLH        &kp BSLH
 	                                                         &trans  &trans  &trans  &trans &trans     &trans   &trans  &kp DEL  &trans  &trans
 			>;
 
