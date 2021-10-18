@@ -12,6 +12,7 @@
 #define DFLT    0
 #define NUMSYM  1
 #define NAV     2
+#define XTND     3
 
 #define BTPC 0
 #define BTPH 1
@@ -43,15 +44,15 @@
 // Pause to mute/unmute microphone
 // RALT as Compose key
 // -------------------------------------------------------------------------------------------------------------------------------------------;
-// |  ESC  |   Q   | W    |  F    |  P    |  B    |                                            |  J   |  L     |  U    |  Y    |  :    |   [  |
-// |  TAB  |  A(G) | R(A) |  S(S) |  T(C) |  G    |                                            |  M   |  N(C)  |  E(S) |  I(A) |  O(G) |   '  |
-// | SHIFT |   Z   | X    |  C    |  D    |  V    |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
-//                        | Pause | toNum | CAPS  | slNum  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
+// |  ESC  |   Q   | W    |  F    |  P    |  B     |                                            |  J   |  L     |  U    |  Y    |  :    |   [  |
+// |  TAB  |  A(G) | R(A) |  S(S) |  T(C) |  G     |                                            |  M   |  N(C)  |  E(S) |  I(A) |  O(G) |   '  |
+// | SHIFT |   Z   | X    |  C    |  D    |  V     |    `   |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
+//                        | Pause | toNum | slXTND | slNUM  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
 			bindings = <
 	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                    &kp J     &kp L        &kp U        &kp Y       &hm SEMI COLON   &kp LBKT
 	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                    &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
 	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV    &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
-	                               &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
+	                               &kp PAUSE_BREAK  &to DFLT  &sl XTND  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
@@ -59,10 +60,10 @@
 
 		numsym_layer {
 // --------------------------------------------------------------------------------------------------------------------------------------------;
-// |  ESC  |  !  |  @  |  #    |  $    |  &    |                                             |   +  |  7     |  8    |  9    |   -      |   >  |
-// |  TAB  |  %  |  _  |  (    |  {    |  [    |                                             |   *  |  4     |  5    |  6    |   =      |   |  |
-// | SHIFT |  ^  |  ~  |  )    |  }    |  ]    |    `   |    F1   ||     ||  F12  | &to DFLT |   0  |  1     |  2    |  3    |   /      |   \  |
-//                     | Pause | toNum | slNum |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC |  moNAV | Pause |
+// |  ESC  |  !  |  @  |  #    |  $    |  &     |                                             |   +  |  7     |  8    |  9    |   -      |   >  |
+// |  TAB  |  %  |  _  |  (    |  {    |  [     |                                             |   *  |  4     |  5    |  6    |   =      |   |  |
+// | SHIFT |  ^  |  ~  |  )    |  }    |  ]     |    `   |    F1   ||     ||  F12  | &to DFLT |   0  |  1     |  2    |  3    |   /      |   \  |
+//                     | Pause | toNum | slXTND | slNUM  |  toNAV  ||     ||  RET  |  SPACE   | BSPC |  moNAV | Pause |
 			bindings = <
 	&trans  &kp EXCL       &kp AT          &kp HASH        &kp DLLR        &kp AMPS                                     &kp PLUS   &kp N7        &kp N8        &kp N9       &kp MINUS       &kp GT
 	&trans  &hm LGUI PRCT  &hm LALT UNDER  &hm LSHFT LPAR  &hm LCTRL LBRC  &kp LBKT                                     &kp STAR   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
@@ -77,37 +78,33 @@
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------;
 // | BT_CLR | BT_OUT_t | BT_SEL 3 | BT_SEL 2 |  BTPC  |  BTPH  |                                             | PG_UP | HOME  | SCLC  |  END  | VOL+  | VOL-  |
 // |  TAB   |   F2     |    F3    |    F4    |  F5    |  F6    |                                             | PG_DN | LEFT  |  UP   | RIGHT | LGUI  |   ;   |
-// | SHIFT  |   F7     |    F8    |    F9    |  F10   |  F11   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | bootl |
-//                                |  Pause   | toNum  | slNum  |  CAPS  |  toNAV  ||     ||  RET  |  SPACE   | BSPC  | moNAV | Pause |
+// | SHIFT  |   F7     |    F8    |    F9    |  F10   |  F11   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | none  |
+//                                |  Pause   | toNum  | slXTND | slNUM  |  toNAV  ||     ||  RET  |  SPACE   | BSPC  | moNAV | Pause |
 			bindings = <
 	&bt BT_CLR  &out OUT_TOG  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL BTPC  &bt BT_SEL BTPH                            &kp PG_UP  &kp HOME   &kp SLCK  &kp END    &kp C_VOL_DN     &kp C_VOL_UP
 	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5     &kp F6                                     &kp PG_DN  &kp LEFT   &kp UP    &kp RIGHT  &kp LGUI         &kp SEMI
-	&trans      &kp F7        &kp F8        &kp F9        &kp F10          &kp F11  &trans &trans   &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &bootloader
+	&trans      &kp F7        &kp F8        &kp F9        &kp F10          &kp F11  &trans &trans   &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &none
 	                                                     &trans   &trans   &trans   &trans &trans   &trans    &trans  &trans  &trans  &trans
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
-	};
 
-        rus_layer {
-// -------------------------------------------------------------------------------------------------------------------------------------------;
-// |  ESC  |   Й   |  Ц   |   У   |   К   |  Е    |                                            |  Н   |   Г    |   Ш   |  Щ    |  Ж    |   Х  |
-// |  TAB  |  Ф(G) | Ы(A) |  В(S) |  А(C) |  П    |                                            |  Р   |  О(C)  |  Л(S) |  Д(A) |  Ж(G) |   Э  |
-// | SHIFT |   Я   |  Ч   |   С   |   М   |  И    |    Ё   |    F1   ||     ||  F12  |  MEH    |  Т   |  H     |   Ь   |  Б    |  Ю    | RALT |
-//                        | Pause | toNum | CAPS  | slNum  |  toNAV  ||     ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
-
-// й ц а з и     о д г н Ж х
-// ф к ы е п     ь т у ш щ э
-// я ч с в м ё   л р б ю .
+		ext_layer {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------;
+// | ESC      | none | back | find  | frwd  | INS  |                                             | PG_UP | HOME  | SHFT  |  END  | VOL+  | VOL-  |
+// | CAPS     | LGUI | LALT | LSHFT | LCTRL | RALT |                                             | PG_DN | LEFT  |  UP   | RIGHT | Pl/Pa | Mute  |
+// | A(SPACE) | ^Z   | ^X   | ^C    | ^D    | ^V   |    `   |   F1    ||     ||  F12  | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Prev  | Next  |
+//                    |  Pause   | toNum  | slXTND |  slNUM |  toNAV  ||     ||  RET  |  SPACE   | BSPC  | moNAV | Pause |
 			bindings = <
-	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                    &kp J     &kp L        &kp U        &kp Y       &kp COLON   &kp LBKT
-	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                    &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
-	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V  &kp GRAV    &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
-	                               &kp PAUSE_BREAK  &to DFLT  &kp CAPS  &sl NUMSYM  &to NAV    &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
+	&trans         &kp CAPS   &kp LA(LEFT)  &kp LC(F)  &kp LA(RIGHT)  &kp INS                                      &kp PG_UP  &kp HOME   &kp LSHFT  &kp END    &kp C_VOL_DN     &kp C_VOL_UP
+	&kp CAPS       &kp LGUI   &kp LALT      &kp LSHFT  &kp LCTRL      &kp RALT                                     &kp PG_DN  &kp LEFT   &kp UP     &kp RIGHT  &kp C_PP         &kp C_MUTE
+	&kp LA(SPACE)  &kp LC(Z)  &kp LC(X)     &kp LC(C)  &kp LC(D)      &kp LC(V)  &trans &trans   &trans  &to DFLT  &kp SLCK   &kp PSCRN  &kp DOWN   &kp INS    &kp C_PREV       &kp C_NEXT
+	                                          &trans     &trans         &trans   &trans &trans   &trans    &trans  &trans  &trans  &trans
 			>;
 
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
+	};
 };
 
