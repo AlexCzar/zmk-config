@@ -77,12 +77,12 @@
 
 		nav_layer {
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------;
-// | ESC    | BT_OUT_t | BT_SEL 3 | BT_SEL 2 |  BTPC  |  BTPH  |                                              | PG_UP | HOME  | SCLC  |  END  | VOL+  | VOL-    |
+// | ESC    | BT_OUT_t | BT_SEL 3 | BT_SEL 2 |  BTPC  |  BTPH  |                                              | PG_UP | HOME  | SCLC  |  END  | BRI-  | BRI+    |
 // |  TAB   |   F2     |    F3    |    F4    |  F5    |  F6    |                                              | PG_DN | LEFT  |  UP   | RIGHT | LGUI  | tog ext |
 // | SHIFT  |   F7     |    F8    |    F9    |  F10   |  F11   |  GRAV  |   F1    ||     ||  F12   | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | tog num |
 //                                |  Pause   |  Menu  | slXTND | slNUM  | slFUNL  ||     ||  RET   |  SPACE   | BSPC  | moNAV | Pause |
 			bindings = <
-	&trans      &out OUT_TOG  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL BTPC  &bt BT_SEL BTPH                                &kp PG_UP  &kp HOME   &kp SLCK  &kp END    &kp C_VOL_DN     &kp C_VOL_UP
+	&trans      &out OUT_TOG  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL BTPC  &bt BT_SEL BTPH                                &kp PG_UP  &kp HOME   &kp SLCK  &kp END    &kp C_BRI_DN     &kp C_BRI_UP
 	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5     &kp F6                                         &kp PG_DN  &kp LEFT   &kp UP    &kp RIGHT  &kp LGUI         &tog XTND
 	&kp LCTRL   &kp F7        &kp F8        &kp F9        &kp F10          &kp F11  &trans &trans       &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &tog NUMSYM
 	                                                 &trans   &trans       &trans   &trans &trans       &trans    &trans  &trans  &trans  &trans
