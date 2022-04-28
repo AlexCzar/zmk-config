@@ -52,7 +52,7 @@
 			bindings = <
 	&kp ESC    &kp Q       &kp W       &kp F        &kp P        &kp B                                                       &kp J     &kp L        &kp U        &kp Y       &hm SEMI COLON   &kp LBKT
 	&kp TAB    &hm LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                       &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hm LGUI O  &kp SQT
-	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V     &kp GRAV    &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
+	&kp LSHFT  &kp Z       &kp X       &kp C        &kp D        &kp V     &kp GRAVE    &kp F1     &kp F12  &kp LC(LS(LALT))  &kp K     &kp H        &kp COMMA    &kp DOT     &kp FSLH    &kp RALT
 	                               &kp PAUSE_BREAK  &kp K_CMENU  &sl XTND  &sl NUMSYM  &sl FUNL   &kp RET         &kp SPACE  &kp BSPC  &sl NAV  &kp PAUSE_BREAK
 			>;
 
@@ -67,8 +67,8 @@
 //                     | Pause |  Menu | slXTND | slNUM  |  slFUNL ||     ||  RET  |  SPACE   | BSPC |  moNAV | Pause |
 			bindings = <
 	&trans  &kp EXCL       &kp AT          &kp HASH        &kp DLLR        &kp AMPS                                     &kp STAR   &kp N7        &kp N8        &kp N9       &kp MINUS       &kp GT
-	&trans  &hm LGUI PRCT  &hm LALT UNDER  &hm LSHFT LPAR  &hm LCTRL LBRC  &kp LBKT                                     &kp PLUS   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
-	&trans  &kp CRRT       &kp TILD        &kp RPAR        &kp RBRC        &kp RBKT  &trans &trans     &trans &to DFLT  &kp N0     &kp N1        &kp N2        &kp N3       &kp FSLH        &kp BSLH
+	&trans  &hm LGUI PRCNT  &hm LALT UNDER  &hm LSHFT LPAR  &hm LCTRL LBRC  &kp LBKT                                     &kp PLUS   &hm RCTRL N4  &hm RSHFT N5  &hm LALT N6  &hm LGUI EQUAL  &kp PIPE
+	&trans  &kp CARET       &kp TILDE        &kp RPAR        &kp RBRC        &kp RBKT  &trans &trans     &trans &to DFLT  &kp N0     &kp N1        &kp N2        &kp N3       &kp FSLH        &kp BSLH
 	                                                         &trans  &trans  &trans  &trans &trans     &trans   &trans  &trans     &trans  &trans
 			>;
 
@@ -119,4 +119,3 @@
 		};
 	};
 };
-
