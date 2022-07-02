@@ -14,6 +14,7 @@
 #define NAV     2
 #define XTND    3
 #define FUNL    4
+#define GAME    5
 
 #define BTPC 0
 #define BTPH 1
@@ -77,14 +78,14 @@
 
 		nav_layer {
 // -------------------------------------------------------------------------------------------------------------------------------------------------------------;
-// | ESC    | BT_OUT_t | BT_SEL 3 | BT_SEL 2 |  BTPC  |  BTPH  |                                              | PG_UP | HOME  | SCLC  |  END  | BRI-  | BRI+    |
-// |  TAB   |   F2     |    F3    |    F4    |  F5    |  F6    |                                              | PG_DN | LEFT  |  UP   | RIGHT | LGUI  | tog ext |
-// | SHIFT  |   F7     |    F8    |    F9    |  F10   |  F11   |  GRAV  |   F1    ||     ||  F12   | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | tog num |
-//                                |  Pause   |  Menu  | slXTND | slNUM  | slFUNL  ||     ||  RET   |  SPACE   | BSPC  | moNAV | Pause |
+// | ESC    | BT_OUT_t | BT_SEL 3 | BT_SEL 2 |  BTPC  |  BTPH  |                                                  | PG_UP | HOME  | SCLC  |  END  | BRI-  | BRI+    |
+// |  TAB   |   F2     |    F3    |    F4    |  F5    |  F6    |                                                  | PG_DN | LEFT  |  UP   | RIGHT | LGUI  | tog ext |
+// | SHIFT  |   F7     |    F8    |    F9    |  F10   |  F11   |  &to GAME  |   F1    ||     ||  F12   | &to DFLT | PRTSC | SCLC  | DOWN  | INS   | Pause | tog num |
+//                                |  Pause   |  Menu  | slXTND | slNUM      | slFUNL  ||     ||  RET   |  SPACE   | BSPC  | moNAV | Pause |
 			bindings = <
 	&trans      &out OUT_TOG  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL BTPC  &bt BT_SEL BTPH                                &kp PG_UP  &kp HOME   &kp SLCK  &kp END    &kp C_BRI_DN     &kp C_BRI_UP
 	&trans      &hm LGUI F2   &hm LALT F3   &hm LSHFT F4  &hm LCTRL F5     &kp F6                                         &kp PG_DN  &kp LEFT   &kp UP    &kp RIGHT  &kp LGUI         &tog XTND
-	&kp LCTRL   &kp F7        &kp F8        &kp F9        &kp F10          &kp F11  &trans &trans       &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &tog NUMSYM
+	&kp LCTRL   &kp F7        &kp F8        &kp F9        &kp F10          &kp F11  &to GAME &trans     &trans  &to DFLT  &kp K      &kp PSCRN  &kp DOWN  &kp INS    &kp PAUSE_BREAK  &tog NUMSYM
 	                                                 &trans   &trans       &trans   &trans &trans       &trans    &trans  &trans  &trans  &trans
 			>;
 
@@ -115,6 +116,17 @@
 	                                        &trans     &trans         &trans     &trans &trans  &trans   &trans  &trans            &trans          &trans
 			>;
 
+			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
+		};
+
+		game_layer {
+			bindings = <
+	&trans  &kp F      &kp N1  &kp N2  &kp N3  &kp N4                                     &hm LC(F12) F12   &hm LC(F7) F7   &hm LC(F8) F8   &hm LC(F9) F9   &none   &none
+	&kp N5  &kp LSHFT  &kp A   &kp W   &kp D   &kp LCTRL                                    &hm LC(F11) F11   &hm LC(F4) F4   &hm LC(F5) F5   &hm LC(F6) F6   &none   &none
+	&trans  &kp X      &kp X   &kp S   &kp E   &kp T       &trans &trans  &trans &to DFLT  &hm LC(F10) F10   &hm LC(F1) F1   &hm LC(F2) F2   &hm LC(F3) F3   &none   &none
+									   &trans     &trans         &trans     &trans &trans  &trans   &trans  &trans            &trans          &trans
+
+			>;
 			sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN>;
 		};
 	};
