@@ -20,6 +20,12 @@
 #define BTPH 1
 
 
+
+&caps_word {
+	continue-list = <UNDERSCORE BACKSPACE>;
+};
+
+
 / {
 
 	behaviors {
@@ -43,10 +49,6 @@
             bindings = <&bt BT_CLR>;
         };
     };
-
-	&caps_word {
-		continue-list = <UNDERSCORE BACKSPACE>;
-	};
 
 	keymap {
 		compatible = "zmk,keymap";
