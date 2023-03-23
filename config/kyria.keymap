@@ -25,6 +25,8 @@
     continue-list = <UNDERSCORE BACKSPACE>;
 };
 
+// &kscan to work around burned pin on nice!nano will be here
+// https://discord.com/channels/719497620560543766/719909884769992755/1088161638525436094
 
 / {
 
