@@ -24,9 +24,19 @@
 &caps_word {
     continue-list = <UNDERSCORE BACKSPACE>;
 };
-
-// &kscan to work around burned pin on nice!nano will be here
-// https://discord.com/channels/719497620560543766/719909884769992755/1088161638525436094
+// pin 15 is burned, so one of the Nice!nano's additional pin will take over
+&kscan0 {
+	col-gpios
+		= <&pro_micro 21 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 20 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
+		, <&gpio1 1 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 16 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 10 GPIO_ACTIVE_HIGH>
+		;
+};
 
 / {
 
