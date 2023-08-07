@@ -24,19 +24,6 @@
 &caps_word {
     continue-list = <UNDERSCORE BACKSPACE>;
 };
-// pin 15 is burned, so one of the Nice!nano's additional pin will take over
-&kscan0 {
-	col-gpios
-		= <&pro_micro 21 GPIO_ACTIVE_HIGH>
-		, <&gpio1 7 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
-		, <&gpio1 1 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 16 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 10 GPIO_ACTIVE_HIGH>
-		;
-};
 
 / {
 
