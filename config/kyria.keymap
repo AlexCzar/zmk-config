@@ -20,33 +20,41 @@
 #define BTPH 1
 
 
+&left_encoder   { steps = <30>; };
+&right_encoder  { steps = <30>; };
 
 &caps_word {
     continue-list = <UNDERSCORE BACKSPACE>;
 };
 
-/ {
+&sk {
+    quick-release;
+};
 
+/ {
     behaviors {
-        hm: homerow_mods {
+        /omit-if-no-ref/ hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
             quick_tap_ms = <0>;
+            require-prior-idle-ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
 
-        hms: homerow_mods_slow {
+        /omit-if-no-ref/ hms: homerow_mods_slow {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS_SLOW";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick_tap_ms = <0>;
+            require-prior-idle-ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
         /omit-if-no-ref/ smart_shift: smart_shift {
             label = "SMART_SHIFT";
             compatible = "zmk,behavior-mod-morph";
