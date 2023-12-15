@@ -101,11 +101,11 @@
 // Home row mods: GASC
 // Pause to mute/unmute microphone
 // RALT as Compose key
-// -------------------------------------------------------------------------------------------------------------------------------------------;
-// |  ESC  |   Q   | W    |  F    | P           |  B     |                                            |  J   |  L     |  U    |  Y    |  :    |   [  |
-// |  TAB  |  A(G) | R(A) |  S(S) | T(C)        |  G     |                                            |  M   |  N(C)  |  E(S) |  I(A) |  O(G) |   '  |
-// | SHIFT |   Z   | X    |  C    | D           |  V     |  GRAV  |    F1   ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
-//                        | Pause | LGUI(SPACE) | slXTND | slNUM  | slFUNL  ||     ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
+// ╭───────┬──────┬───────┬──────┬──────┬───╮
+// | ESC     Q      W       F      P      B |                                            |  J   |  L     |  U    |  Y    |  :    |   [  |
+// | TAB     A(G)   R(A)    S(S)   T(C)   G |───────┬────────╮                                         |  M   |  N(C)  |  E(S) |  I(A) |  O(G) |   '  |
+// | SHIFT   Z      X       C      D      V | GRAV  | F1     |         ||     ||  F12  |  MEH    |  K   |  H     |  ,    |  .    |  /    | RALT |
+//           | Pause | LGUI(SPACE) | slXTND | slNUM | slFUNL |          ||  RET  |  SPACE  | BSPC |  slNAV | Pause |
             bindings = <
     &kp ESC    &kp Q        &kp W       &kp F        &kp P        &kp B                                                       &kp J     &kp L        &kp U        &kp Y       &hm SEMI COLON   &kp LBKT
     &kp TAB    &hms LGUI A  &hm LALT R  &hm LSHFT S  &hm LCTRL T  &kp G                                                       &kp M     &hm RCTRL N  &hm RSHFT E  &hm LALT I  &hms LGUI O  &kp SQT
