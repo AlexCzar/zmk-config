@@ -19,6 +19,19 @@
 #define BTPC 0
 #define BTPH 1
 
+&kscan0 {
+	col-gpios
+		= <&pro_micro 21 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 20 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		, <&gpio1 1 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 16 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 10 GPIO_ACTIVE_HIGH>
+		;
+};
+
 
 &left_encoder   { steps = <30>; };
 &right_encoder  { steps = <30>; };
