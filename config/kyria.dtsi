@@ -36,10 +36,9 @@
     behaviors {
         /omit-if-no-ref/ hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
             #binding-cells = <2>;
             tapping-term-ms = <175>;
-            quick_tap_ms = <0>;
+            quick-tap-ms = <0>;
             require-prior-idle-ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
@@ -47,17 +46,15 @@
 
         /omit-if-no-ref/ hms: homerow_mods_slow {
             compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS_SLOW";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick_tap_ms = <0>;
+            quick-tap-ms = <0>;
             require-prior-idle-ms = <100>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
 
         /omit-if-no-ref/ smart_shift: smart_shift {
-            label = "SMART_SHIFT";
             compatible = "zmk,behavior-mod-morph";
             bindings = <&sk RSHFT>, <&caps_word>;
             mods = <(MOD_RSFT)>;
@@ -65,7 +62,6 @@
         };
         /omit-if-no-ref/ col_semi: colon_semicolon {
             compatible = "zmk,behavior-mod-morph";
-            label = "COLON_SEMICOLON";
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp SEMI>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
